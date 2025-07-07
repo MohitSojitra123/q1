@@ -1,232 +1,46 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./output.css" rel="stylesheet" />
-    <link rel="stylesheet" href="input.css" />
-  </head>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
-    integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
-  <style>
-.ticket-container {
-  width: 310px;
-  height: 50px;
-  background: #f9f9f9;
-  position: relative;
-  /* margin: 40px auto;  */
-  /* border-radius: 6px; */
-  overflow: hidden;
-}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ticket Booking</title>
+  <link rel="stylesheet" href="./output.css">
+</head>
+<body>
+  
 
-/* Semi-circle cutouts on left and right */
-.cutout {
-  width: 40px;
-  height: 40px;
-  background: #cbe0fd; 
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
-}
+  <body class="bg-gray-900 text-white flex items-center justify-center min-h-screen p-4">
 
-.left {
-  left: -20px;
-}
+  <div class="w-full max-w-sm bg-gray-800 p-6 rounded-xl shadow-md">
+    <h2 class="text-2xl font-bold mb-4 text-center">Enter Your Name</h2>
 
-.right {
-  right: -20px;
-}
+    <label for="username" class="block mb-2 text-sm font-medium text-gray-300">Your Name:</label>
+    <input
+      type="text"
+      id="username"
+      placeholder="Enter your name"
+      class="w-full px-4 py-2 mb-4 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
 
-/* Center dashed line */
-.dashed-line {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  border-top: 2px dashed #ccc;
-  transform: translateY(-1px);
-  z-index: 1;
-}
+    <button
+      onclick="generateTicket()"
+      class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-md transition duration-200"
+    >
+      Generate Ticket
+    </button>
+  </div>
 
-     .main_container{
-         width: 330px;
-        height: 200px;
-        border: 2px solide   red; 
-      }
-
-      .container {
-        width: 330px;
-        height: 200px;
-        /* background: #eee; */
-        border-radius: 12px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
-      }
-
-      .circle {
-        width: 100px;
-        height: 100px;
-        /* background-color: #ff6f61; */
-        border-radius: 50%;
-        animation: pulse 2.5s ease-in-out infinite;
-        transition: all  ease;
-
-        img{
-        width: 100px;
-        height: 100px;
-        }
-      }
-
-      @keyframes pulse {
-        0% {
-          transform: scale(1);
-          opacity: 1;
-        }
-        50% {
-          transform: scale(1.8);
-          opacity: 1;
-        }
-        100% {
-          transform: scale(1);
-          opacity: 1;
-        }
-      }
-  </style>
-  <body class="bg-[#cbe0fd] flex justify-center items-center">
-    <div class="w-[330px] h-[100vh]  px-[10px] py-[15px]">
-      <div class="w-[100%] flex justify-between items-center text-[16px]">
-        <div class="font-bold text-[18px]"><i class="ri-close-line"></i></div>
-        <div class=""><u>All Passes</u></div>
-      </div>
-
-      <div class="w-[100%] mt-[60px]">
-        <div class="">
-          <div
-            class="bg-red-600 text-white rounded-[15px_15px_0px_0px] h-[32px] flex items-center justify-center"
-          >
-            Rajkot Rajpath Ltd
-          </div>
-
-          <div
-            class="w-[100%] flex justify-between px-[20px] pt-[10px] h-[70px] bg-white"
-          >
-            <div class="">
-              <div class="text-[#4d545e]">ID</div>
-              <div class="font-bold">Mohit</div>
-            </div>
-            <div class="">
-              <div class="text-[#4d545e]">Fare</div>
-              <div class="font-bold">&#x20B9; 25</div>
-            </div>
-          </div>
-
-          <!-- <div class="w-[100%] border-dashed border-[#4d545e] border-[1px]"></div> -->
-
-          <div class="ticket-container">
-            <div class="cutout left"></div>
-            <div class="cutout right"></div>
-            <div class="dashed-line"></div>
-          </div>
-
-          <div class="ticket">
-            <div class="cut-line"></div>
-          </div>
-
-          <div
-            class="flex justify-between items-center w-[100%] h-[60px] bg-white px-[20px]"
-          >
-            <div class="">
-              <div class="text-[#4d545e] text-[14px]">Booking Time</div>
-              <div class="font-bold text-[11px]"><span id="timetoday"></span> | <span id="bookti"></span></div>
-            </div>
-
-            <div class="">
-              <div class="text-[#4d545e] text-[14px]">Validity Time</div>
-              <div class="font-bold text-[11px]"><span id="timetoday1"></span> | 11 : 59 PM</div>
-            </div>
-          </div>
-
-          <div
-            class="w-[100%] text-[17px] flex justify-center items-center py-[5px] bg-white text-[#4d545e] font-semibold"
-          >
-            25070706457AC1SZ
-          </div>
-
-          <div class="bg-red-600 text-white text-center py-[1px]">
-            One Day Pass
-          </div>
-        </div>
-
-        <div class="w-[100%] h-[200px] bg-white">
-               <div class="main_container">
-        <div class="container">
-            <div class="circle flex justify-center items-center" ><img src="https://img1.wsimg.com/isteam/ip/555b2429-936e-42eb-a645-88bea8adeae9/Logo%20Option%20-%20RRL%20Saarthi.jpg" alt=""></div>
-        </div>
-    </div>
-        </div>
-      </div>
-      <div class="w-[100%] h-[30px]  flex justify-center items-center rounded-[0px_0px_15px_15px] text-[#4d545e] bg-[#f4ecec71] font-semibold">
-        Expires in  &nbsp;<span id="time"> 03:06:32 </span>
-       </div>
-    </div>
-  </body>
   <script>
-    const countTime = 24;
-    const countMin = 60;
-    const countSec = 60;
-
-    let time=document.getElementById("time");
-
-    setInterval(() => {
-      const Date1 = new Date();
-      const currentHours = Date1.getHours();
-      const currentMinutes = Date1.getMinutes();
-      const currentSec = Date1.getSeconds();
-        
-    //   newcurrentHours=currentHours >12 ? currentHours-12 : currentHours  
-
-       time.innerHTML= `${countTime - currentHours - 1} : ${countMin - currentMinutes - 1} : ${countSec - currentSec - 1}`
-      ;
-    }, 1000);
-
-    let timetoday=document.getElementById("timetoday");
-    let timetoday1=document.getElementById("timetoday1");
-    
-    let date2=new Date();
-    let arr=date2.toDateString().split(" ")
-    console.log(arr)
-
-    timetoday.innerHTML=`${arr[2]} ${arr[1]}, ${arr[3].slice(2)}`;
-    timetoday1.innerHTML=`${arr[2]} ${arr[1]}, ${arr[3].slice(2)}`;
-
-
-    console.log(date2.get)
-    console.log(date2.getMinutes())
-
-let date3 = new Date();
-let hours = date3.getHours(); 
-let minutes = date3.getMinutes();
-
-let period = hours >= 12 ? "PM" : "AM";
-hours = hours % 12;
-hours = hours === 0 ? 12 : hours; 
-minutes = minutes < 10 ? "0" + minutes : minutes;
-let currentTime = `${hours}:${minutes} ${period}`;
-
-let bookti=document.getElementById("bookti");
-
-bookti.innerHTML=currentTime;
-
-
+    function generateTicket() {
+      const name = document.getElementById("username").value.trim();
+      if (name === "") {
+        alert("Please enter your name!");
+        return;
+      }
+      // Encode the name to handle spaces and special characters
+      const encodedName = encodeURIComponent(name);
+      // Redirect to user page with name in URL parameter
+      window.location.href = `userpage.html?name=${encodedName}`;
+    }
   </script>
-
+</body>
 </html>
