@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pulsing Circle</title>
+    <style>
+      /* body {
+        background: #f9f9f9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      } */
+
+      .main_container{
+         width: 330px;
+        height: 200px;
+        border: 2px solide   red; 
+      }
+
+      .container {
+        width: 330px;
+        height: 200px;
+        /* background: #eee; */
+        border-radius: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
+      }
+
+      .circle {
+        width: 100px;
+        height: 100px;
+        /* background-color: #ff6f61; */
+        border-radius: 50%;
+        animation: pulse 2.5s ease-in-out infinite;
+        transition: all  ease;
+
+        img{
+        width: 100px;
+        height: 100px;
+        }
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.8);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main_container">
+        <div class="container">
+            <div class="circle"><img src="https://img1.wsimg.com/isteam/ip/555b2429-936e-42eb-a645-88bea8adeae9/Logo%20Option%20-%20RRL%20Saarthi.jpg" alt=""></div>
+        </div>
+    </div>
+  </body>
+</html>
